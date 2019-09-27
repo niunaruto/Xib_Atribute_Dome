@@ -3,44 +3,44 @@
 
 # ViewController.Swift 文件
 
-import UIKit
-import SnapKit
-class ViewController: UIViewController {
+    import UIKit
+    import SnapKit
+    class ViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
+       @IBOutlet weak var label: UILabel!
+       override func viewDidLoad() {
+          super.viewDidLoad()
         
-        DispatchQueue.main.asyncAfter(deadline:.now() + 3) {
-            self.label.snp.updateConstraints({ (make) in
-                make.left.equalToSuperview().offset(20*pointRatio)
-                make.top.equalToSuperview().offset(200*pointRatio)
-            })
-        }
+           DispatchQueue.main.asyncAfter(deadline:.now() + 3) {
+             self.label.snp.updateConstraints({ (make) in
+                  make.left.equalToSuperview().offset(20*pointRatio)
+                  make.top.equalToSuperview().offset(200*pointRatio)
+              })
+         }
+      }
     }
-}
 
 # UIView-Extension.Swift 文件
 
 
 
-import UIKit
-var ratioKey = 101
-let pointRatio : CGFloat = UIScreen.main.bounds.size.width / 750 * 2
+    import UIKit
+    var ratioKey = 101
+    let pointRatio : CGFloat = UIScreen.main.bounds.size.width / 750 * 2
 
-extension UIView {
+    extension UIView {
 
-    @IBInspectable var ratio: Bool {
-        set {
-            objc_setAssociatedObject(self, &ratioKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
-        }
-        get {
-            if let ratio = objc_getAssociatedObject(self, &ratioKey) as? Bool {
-                return ratio
-            }
-            return false
-        }
-    }
+       @IBInspectable var ratio: Bool {
+         set {
+             objc_setAssociatedObject(self, &ratioKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+         }
+         get {
+                if let ratio = objc_getAssociatedObject(self, &ratioKey) as? Bool {
+                 return ratio
+               }
+             return false
+           }
+     }
     
     
  
@@ -72,7 +72,7 @@ extension UIView {
       
         
     }
-}
+    }
 
 
 # UILabel-Extension.Swift
@@ -96,7 +96,7 @@ extension UILabel {
         }
     }
     
-}
+    }
 
 
 
